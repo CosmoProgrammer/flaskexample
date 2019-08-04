@@ -1,0 +1,141 @@
+<html>
+<title>
+	New Bill
+</title>
+
+<body background="static/bava.jpg">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="static/rainbow_txt.css">
+	<script type = "text/javascript" 
+			   src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+	</script>
+	<script type = "text/javascript" language = "javascript">
+			   $(document).ready(function() {
+				  var x = 0;
+				  var productSelectValues = { {% for item in itemNames %} "{{item}}": "{{item}}", {% endfor %} };		 
+				  var addButton = $('.add_button'); //Add button selector
+				  var wrapper = $('.field_wrapper'); 
+				  $(addButton).click(function(){ //Once add button is clicked
+						   
+						  // $(wrapper).append('<tr><td>')
+						    var itemProductList = document.createElement("select");
+							var itemID = 'Item_'+ x
+							$(itemProductList).attr("name",itemID);
+                            $.each(productSelectValues, function(key, value) {   
+     							$(itemProductList)
+        							 .append($("<option></option>")
+                    				 .attr("value",key)
+                    				.text(value)); 
+							});
+							//$(wrapper).append(itemProductList);
+
+							//$(wrapper).append("</td><td>")
+							var ItemPrice = document.createElement("input");
+						    priceID = 'Price_'+ x
+							$(ItemPrice).attr("name",priceID);
+							$(ItemPrice).attr("type","text");
+							//$(wrapper).append(ItemPrice);
+
+							//$(wrapper).append("</td><td>")
+							var ItemQty = document.createElement("input");
+						    qtyID = 'Qty_'+ x
+							$(ItemQty).attr("name",qtyID);
+							$(ItemQty).attr("type","text");
+							//$(wrapper).append(ItemQty);
+
+							//$(wrapper).append("</td><td>")
+							var ItemDsc = document.createElement("input");
+						    DscID = 'Dsc_'+ x
+							$(ItemDsc).attr("name",DscID);
+							$(ItemDsc).attr("type","text");
+							//$(wrapper).append(ItemDsc);
+							
+							//$(wrapper).append("</td></tr>")
+							//$(wrapper).append('<tr><td>')
+							$(wrapper).append(itemProductList)
+							//$(wrapper).append("</td><td>")
+							$(wrapper).append(ItemPrice);
+							//$(wrapper).append("</td><td>")
+							$(wrapper).append(ItemQty);
+							//$(wrapper).append("</td><td>")
+							$(wrapper).append(ItemDsc);
+							$(wrapper).append("<br>")
+							//$(wrapper).append("</td></tr>")
+							x++; //Increment field counter
+							$("#itemCount").val(x);
+
+
+						   
+				   });
+	   
+			   });
+	</script>
+</head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+<body background="static/bava.jpg">
+
+	<style type="text/css">
+	h1 {
+		font-size: 250%;
+	}
+	h2 {
+		font-size: 100%;
+	}
+	h3 {
+		font-size: 200%
+	}
+	h4 {
+		font-size: 150%
+	}
+</style>
+
+<h1>
+	<center>
+		<span class="rainbow">National Public School, Rajajinagar</span>
+	</center></h1>
+<h3>
+	<center>
+		<span class="rainbow">Entrepreneurship 2017-18</span>
+	</center>
+</h3>
+
+<center>
+<form action=/newdbill method="POST">
+  <fieldset>
+ 	 <legend><h2>Create New Bill:</h2></legend>
+  <strong>Customer Name: </strong><input type="text" name="customer"><br>
+  <strong>Mobile Number: </strong><input type="text" name="mobile"><br><br>
+  <strong>Email : </strong><input type="text" name="email"><br><br>
+  <input id="itemCount" type="hidden" name="itemCount" value=0>
+  <br><br>
+ <a href="javascript:void(0);" class="add_button" title="Add field"><img src="static/add_item.png"/ width="64" height="64">Add Item</a>
+ <br><br>
+ <h2>Item List</h2><br>
+  <table class="field_wrapper">
+	  <tr>
+		  <th>Product</th>
+		  <th>Cost/Unit</th>
+		  <th>Quantity</th>
+		  <th>Discount/Unit</th>
+	  </tr>
+	</table>
+ </fieldset>
+ <center><button>Submit</button></center></form></body>
+</center>
+</html>

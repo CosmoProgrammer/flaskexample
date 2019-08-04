@@ -1,0 +1,79 @@
+<html>
+<title>
+	New Bill
+</title>
+
+
+<head><link rel="stylesheet" type="text/css" href="static/rainbow_txt.css"></head> 
+<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		
+		th, td {
+			text-align: left;
+			padding: 8px;
+		}
+		th {
+			background-color: rgb(7, 43, 109);
+			color: white;
+		}
+		tr:nth-child(even) {background-color: #f2f2f2;}
+		</style>
+
+<body background="static/bava.jpg">
+	<style type="text/css">
+	h1 {
+		font-size: 250%;
+	}
+	h2 {
+		font-size: 100%;
+	}
+	h3 {
+		font-size: 200%
+	}
+	h4 {
+		font-size: 150%
+	}
+	</style>
+
+	<h1>
+		<center>
+			<span class="rainbow">National Public School, Rajajinagar</span>
+		</center></h1>
+	<h1>
+		<center>
+			<span class="rainbow">Entrepreneurship 2017-18</span>
+		</center>
+	</h1>
+
+	<h3>
+			<center>
+				<span class="rainbow">Confirm Order</span>
+			</center>
+	</h3>
+<center>
+<br>
+<br>
+<strong>Custome Name :</strong> {{name}}
+<br>
+<strong>Mobile : </strong>{{mobile}}
+<br>
+<strong>E-mail : </strong>{{email}}
+<br>
+<strong>Bill reciept number </strong>{{billnumber}}
+{{bilhtml|safe}}
+<br>
+</center>
+<form action=/confirmbill method="POST">
+   <input type="hidden" name="customer" value="{{name}}"><br>
+   <input type="hidden" name="mobile" value="{{mobile}}"><br>
+   <input type="hidden" name="cost" value="{{cost}}"><br>
+   <input type="hidden" name="bill" value="{{bill}}"><br>
+   <input type="hidden" name="bilhtml" value="{{bilhtml}}"><br>
+   <input type="hidden" name="billnumber" value="{{billnumber}}"><br>
+   <input type="hidden" name="email" value="{{email}}"><br>
+ <center><button>Confirm Order</button></center></form></body>
+<br>Please note, if customer has enabled DND (Do not disturb),he/she will not receive the bill through mobile
+</html>

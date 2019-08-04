@@ -1,0 +1,8 @@
+Small_Bears
+Big_Bears
+Small_Tacos
+Big_Tacos
+Spray_Cups
+Small_Cups
+Mega_Small_Cup
+Mega_Taco

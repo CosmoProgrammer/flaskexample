@@ -1,0 +1,3 @@
+Spectacles 675
+Knowledge 90
+Chair 9000

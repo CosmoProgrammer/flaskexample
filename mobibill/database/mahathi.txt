@@ -1,0 +1,3 @@
+Barbie_Doll 675
+Toy_Phone 90
+Toffee 9000

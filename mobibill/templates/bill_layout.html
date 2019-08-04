@@ -1,0 +1,80 @@
+<html>
+<title>
+	New Bill
+</title>
+
+<body background="static/bava.jpg">
+
+<head><link rel="stylesheet" type="text/css" href="static/rainbow_txt.css"></head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+<body>
+
+	<style type="text/css">
+	h1 {
+		font-size: 250%;
+	}
+	h2 {
+		font-size: 100%;
+	}
+	h3 {
+		font-size: 200%
+	}
+	h4 {
+		font-size: 150%
+	}
+</style>
+
+<h1>
+	<center>
+		<span class="rainbow">National Public School, Rajajinagar</span>
+	</center></h1>
+<h3>
+	<center>
+		<span class="rainbow">Entrepreneurship 2017-18</span>
+	</center>
+</h3>
+
+<center>
+<form action=/newbill method="POST">
+  <fieldset>
+ 	 <legend><h2>Create New Bill:</h2></legend>
+  <strong>Customer Name: </strong><input type="text" name="customer"><br>
+  <strong>Mobile Number: </strong><input type="text" name="mobile"><br><br>
+  <strong>Email : </strong><input type="text" name="email"><br><br>
+  <h2>Item List</h2><br>
+  <table>
+	  <tr>
+		  <th>Product</th>
+		  <th>Cost/Unit</th>
+		  <th>Quantity</th>
+		  <th>Discount/Unit</th>
+	  </tr>
+  {% for item in itemNames %}
+  <tr>
+	  <td>{{ item }}</td>
+	  <td>{{itemCost[loop.index0]}}</td>
+	  <td><input type="text" name="{{item}}"></td>
+	  <td><input type="text" name="{{item}}_discount"><br><br></td>
+  </tr>
+  {% endfor %}
+</table>
+ </fieldset>
+ <br><br>
+ <center><button>Submit</button></center></form></body>
+</center>
+</html>
